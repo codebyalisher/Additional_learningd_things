@@ -56,7 +56,7 @@ I want to implement a new feature in my project using SQLAlchemy and FastAPI/Fla
   - Use dependency injection if needed
 
 ### 7. Design Patterns
-- Apply Repository, Unit of Work, and Data Mapper where applicable
+- Apply Repository,Query Object Pattern, Unit of Work, and Data Mapper where applicable
 - Use Lazy Loading, Query Objects for abstraction
 
 ### 8. Query Optimization
@@ -117,6 +117,7 @@ I want to implement a new feature in my project using SQLAlchemy and FastAPI/Fla
 - Optimize queries & session usage
 - Apply validation at multiple layers (Model → Pydantic → API)
 - Add tips for edge cases or known pitfalls
+-provide the general helper function which free the memory as user leave the product
 
 📦 Output Format:
 - Sequential modular steps
