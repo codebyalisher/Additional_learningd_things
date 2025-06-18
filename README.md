@@ -124,6 +124,17 @@ I want to implement a new feature in my project using SQLAlchemy and FastAPI/Fla
 - Clear explanation for each step
 - Code snippets where useful
 - Tips and gotchas to avoid
+
+
+## How to Use:
+When you want to implement any feature, just fill in:
+
+🔧 Feature Name
+
+🎯 Objective
+
+...and plug this prompt into ai models. You'll get a production-grade architecture and implementation plan that spans database, API, testing, and scaling — with security and performance in mind.
+
 ```
 
 ## 2nd-Approach for giving the prompt to the chatgpt
