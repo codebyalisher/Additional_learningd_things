@@ -118,6 +118,7 @@ I want to implement a new feature in my project using SQLAlchemy and FastAPI/Fla
 - Apply validation at multiple layers (Model → Pydantic → API)
 - Add tips for edge cases or known pitfalls
 -provide the general helper function which free the memory as user leave the product
+-working flow of tables or models i.e.suppose we get email thorugh this we will fetch the department,through department we will get the ticket id for details,from this ticket we will get the attachemtn and so on ,i am just telling as example.
 
 📦 Output Format:
 - Sequential modular steps
