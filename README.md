@@ -193,3 +193,118 @@ needed.
 Notes: Don't do hard code code, optimized query, proper efficient handle session management.
 
 ```
+
+
+
+
+
+
+Redis Overview for Ticket Management System
+What is Redis?
+Redis = Remote Dictionary Server
+Type: In-memory key-value data store
+Speed: Sub-millisecond response times
+Use: Cache, database, message broker
+Redis in Your Architecture
+1. Storage Pattern: Hash Structure
+javascript// Your Redis structure
+Key: "tickets" (Hash)
+├── Field: "123" → Value: '{"id":123,"title":"Bug","status_name":"Open",...}'
+├── Field: "124" → Value: '{"id":124,"title":"Feature","status_name":"Closed",...}'
+├── Field: "125" → Value: '{"id":125,"title":"Support","status_name":"Progress",...}'
+└── ...
+
+// Commands you'll use:
+HSET tickets 123 '{"id":123,"status_name":"Open"}'  // Store ticket
+HGET tickets 123                                     // Get single ticket  
+HGETALL tickets                                      // Get all tickets
+HDEL tickets 123                                     // Delete ticket
+HLEN tickets                                         // Count tickets
+2. Database Selection
+javascript// Redis has 16 databases (0-15)
+SELECT 1    // Switch to database 1 for tickets
+SELECT 0    // Default database
+
+// In your code:
+const redis = new Redis({
+  host: 'localhost',
+  port: 6379,
+  db: 1  // Use database 1 for tickets
+});
+3. Memory & Persistence
+bash# Snapshots (RDB) - Point-in-time backups
+save 900 1     # Save after 900 sec if 1+ keys changed
+save 300 10    # Save after 300 sec if 10+ keys changed  
+save 60 10000  # Save after 60 sec if 10000+ keys changed
+
+# Append-only file (AOF) - Real-time logging
+appendonly yes
+appendfsync everysec  # Sync to disk every second
+4. Performance Characteristics
+javascript// Time Complexities for your operations:
+HSET tickets 123 data     // O(1) - Insert/Update
+HGET tickets 123          // O(1) - Read single ticket
+HGETALL tickets          // O(N) - Read all tickets (N = ticket count)
+HDEL tickets 123         // O(1) - Delete ticket
+
+// Memory usage (approximate):
+// Each ticket JSON ~1KB → 100K tickets = ~100MB
+// Hash overhead minimal compared to alternatives
+5. Configuration for Your Use Case
+bash# redis.conf optimizations
+maxmemory 2gb                    # Set memory limit
+maxmemory-policy allkeys-lru     # Evict least recently used
+timeout 300                      # Client timeout
+tcp-keepalive 300               # Connection keepalive
+
+# Persistence strategy
+save 900 1 300 10 60 10000      # Multiple save points
+appendonly yes                   # Enable AOF
+auto-aof-rewrite-percentage 100  # Auto-rewrite AOF when 100% bigger
+6. Redis vs Alternatives
+javascript// Why Redis Hash vs other Redis structures:
+
+// ❌ String approach (less efficient):
+SET ticket:123 '{"id":123,...}'  // Separate key per ticket
+// - More memory overhead
+// - Can't get all tickets in one command
+
+// ❌ List approach (wrong use case):  
+LPUSH tickets '{"id":123,...}'   // Sequential storage
+// - No random access by ID
+// - Search requires full scan
+
+// ✅ Hash approach (optimal):
+HSET tickets 123 '{"id":123,...}'
+// - O(1) access by ticket ID
+// - Memory efficient
+// - Single command for all tickets
+7. Monitoring & Health
+javascript// Key Redis commands for monitoring:
+INFO memory          // Memory usage stats
+INFO stats          // Operation stats  
+DBSIZE              // Number of keys
+PING                // Health check
+MONITOR             // Real-time command monitoring (dev only)
+
+// In your health service:
+const info = await redis.info('memory');
+const keyCount = await redis.dbsize();
+8. Redis in Your Data Flow
+┌─────────────┐    ┌──────────────┐    ┌─────────────┐
+│   Frontend  │───▶│   Your API   │───▶│    Redis    │
+│             │    │              │    │  (DB: 1)    │
+└─────────────┘    └──────────────┘    │   Hash:     │
+                           │            │  "tickets"  │
+                           ▼            └─────────────┘
+                   ┌──────────────┐              ▲
+                   │   Database   │              │
+                   │  (MySQL/PG)  │              │
+                   └──────────────┘              │
+                           │                     │
+                           ▼                     │
+                   ┌──────────────┐              │
+                   │    Binlog    │──────────────┘
+                   │  Processor   │
+                   └──────────────┘
+Bottom Line: Redis acts as your ultra-fast, in-memory database that sits between your API and users, storing pre-computed, denormalized ticket data for instant access.
