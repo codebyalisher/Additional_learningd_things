@@ -308,3 +308,22 @@ const keyCount = await redis.dbsize();
                    │  Processor   │
                    └──────────────┘
 Bottom Line: Redis acts as your ultra-fast, in-memory database that sits between your API and users, storing pre-computed, denormalized ticket data for instant access.
+
+
+**genrators**-->are the functions that  that returns an iterator object generates the result over time in series,mean for the specific iteration time it executes the result and stop the function execution for tempolorarily and when then the generators called they start execution from the stoping point they use yield Yield: is used in generator functions to provide a sequence of values over time ,When yield is executed, it pauses the function, returns the current value and retains the state of the function. This allows the function to continue from same point when called again, making it ideal for generating large or complex sequences efficiently,they are efficient for large data as they save memeory ,iterators do same but we dont define them in generators and they are similar to list comprehension but parantheis are used sq=(x*i for i in range(1,6)) for i in sq: print(i).
+
+**memory allowing** -->pools(small,med,large),**objects creaton**-->single reference count,double and so on or circular reference then garbage collector called,-->it has 0 generation in which it collects objects,1 generation for promote objects and 2 for removing the objects,memory effiencer-->use generator,list comprehension,use specific dtypes structures on data base,use slots if fixed attributes,use one object in loop if its so,memory profiler like cpu,line performer and code profiler etc.
+
+**cpython** complies the python code into bytecode and then is interpreted by cpython interpreter ,it is ahead of time(aot)compilation mean the entire code is translated before execution.
+**pypy** is just in time(jit) compiler.this compile the code into machine code during runtime only the part that is actively being used and then this complied part then is cached for subsequent use.
+**C Extensions for Performance-Critical Parts**
+While Python is excellent for rapid development and ease of use, there are times when you need the raw speed of lower-level languages like C. Python allows you to create C extensions, which can significantly boost performance for computationally intensive tasks.
+**Using Cython for Easier C Extensions**
+Cython is a superset of Python that compiles to C, making it easier to create C extensions.
+**Use tools like cProfile, line_profiler, and memory_profiler to identify bottlenecks.**
+`2. Use Appropriate Data Structures
+3-Leverage Built-in Functions and Libraries
+4. Write Idiomatic Python:Use list comprehensions, generator expressions, and other Pythonic constructs.
+5. Use Generators for Large Datasets:Generators can help manage memory for large datasets.
+Performance optimization in Python Techniques-->https://miro.medium.com/v2/resize:fit:720/format:webp/1*W4EMVAg4uNDcupd7Q7Z4-A.png
+`
