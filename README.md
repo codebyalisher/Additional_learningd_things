@@ -327,3 +327,18 @@ Cython is a superset of Python that compiles to C, making it easier to create C 
 5. Use Generators for Large Datasets:Generators can help manage memory for large datasets.
 Performance optimization in Python Techniques-->https://miro.medium.com/v2/resize:fit:720/format:webp/1*W4EMVAg4uNDcupd7Q7Z4-A.png
 `
+
+**composition vs inheritance:** in composition we combine objects as a parameters or for operations to build our product instead of inheriting the clases.
+**MRO**-->method resolution order in which basically the method is called of first class from bottom to top in sequence wise ,similar super() also follow the MRO determine next class to look for the method to call.
+**patterns:**
+**1-singelton pattern** mean one object of a class and has the global access .
+**2-factory patter** mean the superclass is responsible for handling the subclasses objects to alter or modify.
+**3-observer pattern** mean to pass the object as parameter to notify or operate on it by passing to the other class.
+**4-strategy pattern** selecting the algorithm or class from different clases at runtime.
+**5-adapter pattern** allows incompatible interfaces to work together.
+**6-proxy pattern** placheholder for another object to control access it.
+
+**Metaclasses**
+In Python, metaclasses are the ‘classes of classes’. They define how a class behaves. A metaclass is to a class what a class is to an instance. Metaclasses are used to create classes with specific traits or behaviors.
+Imagine a framework that requires all classes to have a certain set of methods or attributes. A metaclass can automatically add these or enforce rules, ensuring consistency across the framework.
+**Dependency Injection** is a technique in which one component is dependent on other to full fill its functionality ,i.e. packages are first independent when they are used in app they become dependencies,they are injected as paramters instead of hardcoding and they are injected using constructor,method or object.
