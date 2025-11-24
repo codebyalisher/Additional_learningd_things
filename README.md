@@ -581,4 +581,53 @@ CalculatorWithHistory logs result & returns CalculationResult
 <img width="1064" height="721" alt="image" src="https://github.com/user-attachments/assets/e4d4855b-8595-4688-a5b1-c009e2527dd3" />
 <img width="653" height="222" alt="image" src="https://github.com/user-attachments/assets/416c8fa1-ee3f-4b64-8c70-0f40ea69092c" />
 
+**Maintainability & Testability in Software (Calculator Example)**
+
+ – Emphasizes the importance of maintainability and testability in software development. It's not just about making it work—it's about making it sustainable.
+
+ – Presents a “bad” calculator example:
+
+**A single, complex calculate function.**
+
+  - Full of nested logic, try/except, and with statements.
+  
+  - Hard to understand and test due to its convoluted structure.
+  
+  - Would require testing many edge cases, making quality assurance inefficient.
+
+ – Introduces an improved version using modular components:
+
+**Breaks functionality into small, single-responsibility parts.**
+
+  - Components include:
+  
+  - calculation_result: easy to verify output.
+  
+  - operation_parser: handles parsing only, simplifying logic and testing.
+  
+  - Main calculator: now very readable and minimal.
+
+**Benefits of this approach:**
+
+  - Easier to test each piece in isolation.
+  
+  - Fewer edge cases per function.
+  
+  - Better clarity, reduced complexity.
+
+**Takeaways**:
+
+  - Writing clean, testable code takes more effort upfront.
+  
+  - Good architecture/design separates expert developers from novices.
+  
+  - Tools like AI can help, but developers must understand sound design principles.
+
+**✅ Key Lessons**
+
+  - Split complex logic into modular, testable units.
+  
+  - Code that is easy to test is also easier to maintain and understand.
+  
+  - Quality coding requires thoughtful architecture and developer experience—not just automation.
 
