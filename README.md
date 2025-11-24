@@ -342,3 +342,52 @@ Performance optimization in Python Techniques-->https://miro.medium.com/v2/resiz
 In Python, metaclasses are the ‘classes of classes’. They define how a class behaves. A metaclass is to a class what a class is to an instance. Metaclasses are used to create classes with specific traits or behaviors.
 Imagine a framework that requires all classes to have a certain set of methods or attributes. A metaclass can automatically add these or enforce rules, ensuring consistency across the framework.
 **Dependency Injection** is a technique in which one component is dependent on other to full fill its functionality ,i.e. packages are first independent when they are used in app they become dependencies,they are injected as paramters instead of hardcoding and they are injected using constructor,method or object.
+### Classe Concepts;
+<img width="948" height="689" alt="image" src="https://github.com/user-attachments/assets/44536b66-1220-4cbc-88b6-bf61b111cd4b" /> <br>
+<img width="913" height="699" alt="image" src="https://github.com/user-attachments/assets/67d27570-07cf-4067-bcd9-61164b03fa15" /> <br>
+<img width="896" height="264" alt="image" src="https://github.com/user-attachments/assets/53add292-13c6-440d-b9e6-3436179da0f4" />
+
+```python
+# ─── Base Class ─────────────────────────────────────────────
+class User:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        return f"Hello, {self.name}"
+
+# ─── Inheritance ────────────────────────────────────────────
+class Admin(User):  # INHERIT
+    def __init__(self, name, permissions):
+        super().__init__(name)
+        self.permissions = permissions
+
+# ─── Composition ────────────────────────────────────────────
+class Logger:
+    def log(self, msg):
+        print(f"[LOG] {msg}")
+
+# ─── Dependency Injection ───────────────────────────────────
+class UserService:
+    def __init__(self, repo, logger: Logger):
+        self.repo = repo              # COMPOSITION
+        self.logger = logger          # COMPOSITION
+
+    def create_user(self, name):
+        user = User(name)
+        self.repo.save(user)         # DEPENDENCY
+        self.logger.log(f"Created {user.name}")
+        return user
+
+# ─── Used from a Controller ─────────────────────────────────
+class UserController:
+    def __init__(self, service: UserService):  # INJECT
+        self.service = service
+
+    def register_user(self, name):
+        return self.service.create_user(name)  # CALL
+```
+<img width="983" height="318" alt="image" src="https://github.com/user-attachments/assets/e1d62649-cd6a-4546-938d-34b7b06ce620" />
+
+
+
