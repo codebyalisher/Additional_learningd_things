@@ -630,4 +630,5 @@ CalculatorWithHistory logs result & returns CalculationResult
   - Code that is easy to test is also easier to maintain and understand.
   
   - Quality coding requires thoughtful architecture and developer experience—not just automation.
-
+## FASTAPI CUSTOM COMMANDS
+<img width="974" height="889" alt="image" src="https://github.com/user-attachments/assets/946248e7-f54a-4131-8ecd-f6d8a56bfd9a" />
