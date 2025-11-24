@@ -388,7 +388,197 @@ class UserController:
     def register_user(self, name):
         return self.service.create_user(name)  # CALL
 ```
+
 <img width="983" height="318" alt="image" src="https://github.com/user-attachments/assets/e1d62649-cd6a-4546-938d-34b7b06ce620" />
 
+## Patterns
+**Maintainability & Testability in Programming**
+<img width="945" height="787" alt="image" src="https://github.com/user-attachments/assets/e7017498-30d3-4498-a757-603148b7e6b6" />
+
+```python
+import datetime
+
+class Calculator:
+    """Unmaintainable calculator with mixed concerns"""
+
+    def __init__(self):
+        self.history = []
+        self.log_file = "calculator.log"
+
+    def calculate(self, expr: str):
+        """Complex method that does too many things"""
+        timestamp = datetime.datetime.now()
+
+        if '+' in expr:
+            parts = expr.split('+')
+            if len(parts) != 2:
+                with open(self.log_file, "a") as f:
+                    f.write(f"{timestamp}: ERROR - Invalid expression: {expr}\n")
+                print("ERROR: Invalid expression")
+                return None
+
+            try:
+                a = float(parts[0].strip())
+                b = float(parts[1].strip())
+            except:
+                with open(self.log_file, "a") as f:
+                    f.write(f"{timestamp}: ERROR - Invalid numbers in: {expr}\n")
+                return None
+
+            result = a + b
+        else:
+            with open(self.log_file, "a") as f:
+                f.write(f"{timestamp}: ERROR - Unknown operator in: {expr}\n")
+            return None
+
+        self.history.append((expr, result))
+        with open(self.log_file, "a") as f:
+            f.write(f"{timestamp}: {expr} = {result}\n")
+
+        return result
+```
+<br>**Good Example: Modular & Testable**
+```python
+from dataclasses import dataclass
+from typing import Optional, List
+from datetime import datetime
+
+# Pure operations (no side effects)
+class Operations:
+    """Single responsibility: Mathematical operations (pure functions)"""
+
+    @staticmethod
+    def add(a: float, b: float) -> float:
+        """Pure function - easy to test!"""
+        return a + b
+
+    @staticmethod
+    def subtract(a: float, b: float) -> float:
+        """Pure function - easy to test!"""
+        return a - b
+
+    @staticmethod
+    def multiply(a: float, b: float) -> float:
+        """Pure function - easy to test!"""
+        return a * b
+
+    @staticmethod
+    def divide(a: float, b: float) -> float:
+        """Pure function - easy to test!"""
+        if b == 0:
+            raise ValueError("Division by zero")
+        return a / b
+
+
+@dataclass
+class CalculationResult:
+    expression: str
+    result: float
+    timestamp: datetime
+
+
+# Operation Parser (Expression Interpreter)
+class OperationParser:
+    OPERATORS = {
+        '+': Operations.add,
+        '-': Operations.subtract,
+        '*': Operations.multiply,
+        '/': Operations.divide
+    }
+
+    @staticmethod
+    def parse(expression: str):
+        expression = expression.strip()
+        for op, func in OperationParser.OPERATORS.items():
+            if op in expression:
+                parts = expression.split(op)
+                if len(parts) != 2:
+                    raise ValueError(f"Invalid expression: {expression}")
+                a = float(parts[0].strip())
+                b = float(parts[1].strip())
+                return a, b, func
+        raise ValueError(f"Unknown operator in: {expression}")
+
+
+# Calculator Logic (No I/O or Logging)
+class Calculator:
+    def calculate(self, expr: str) -> float:
+        a, b, operation = OperationParser.parse(expr)
+        return operation(a, b)
+
+
+# History‑Tracking Wrapper
+class CalculatorWithHistory:
+    """Calculator with history tracking ‑ testable with dependency injection"""
+
+    def __init__(self, calculator: Optional[Calculator] = None):
+        self.calculator = calculator or Calculator()
+        self.history: List[CalculationResult] = []
+
+    def calculate(self, expr: str) -> CalculationResult:
+        result = self.calculator.calculate(expr)
+        calc_result = CalculationResult(
+            expression=expr,
+            result=result,
+            timestamp=datetime.now()
+        )
+        self.history.append(calc_result)
+        return calc_result
+
+    def get_history(self) -> List[CalculationResult]:
+        return self.history.copy()
+
+
+# Demo / Main Program
+if __name__ == "__main__":
+    calc = CalculatorWithHistory()
+
+    print("Basic Calculator:")
+    print(f"5 + 3 = {calc.calculate('5 + 3').result}")
+    print(f"10 - 4 = {calc.calculate('10 - 4').result}")
+    print(f"6 * 7 = {calc.calculate('6 * 7').result}")
+    print(f"20 / 5 = {calc.calculate('20 / 5').result}")
+
+    print("\nHistory:")
+    for entry in calc.get_history():
+        print(f"{entry.expression} = {entry.result}")
+
+    print("\n[OK] BENEFITS:")
+    print("- Each component has a single, clear responsibility")
+    print("- Pure functions are easy to test")
+    print("- No side effects in calculation logic")
+    print("- Can test each component in isolation")
+    print("- Easy to add new operations")
+    print("- Clear, maintainable code structure")
+```
+
+**Overall Sequence of Components (Top-Down)**
+```python
+User Input (e.g., "5 + 3")
+       │
+       ▼
+CalculatorWithHistory.calculate(expr)  ← Entry Point
+       │
+       ▼
+Calculator.calculate(expr)
+       │
+       ▼
+OperationParser.parse(expr)
+       │
+       ▼
+Returns: (a, b, operation_function)
+       │
+       ▼
+Operation_function(a, b) from Operations class
+       │
+       ▼
+Result calculated (e.g., 8.0)
+       │
+       ▼
+CalculatorWithHistory logs result & returns CalculationResult
+```
+<br>
+<img width="1064" height="721" alt="image" src="https://github.com/user-attachments/assets/e4d4855b-8595-4688-a5b1-c009e2527dd3" />
+<img width="653" height="222" alt="image" src="https://github.com/user-attachments/assets/416c8fa1-ee3f-4b64-8c70-0f40ea69092c" />
 
 
