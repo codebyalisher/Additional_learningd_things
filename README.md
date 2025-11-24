@@ -307,7 +307,8 @@ const keyCount = await redis.dbsize();
                    │    Binlog    │──────────────┘
                    │  Processor   │
                    └──────────────┘
-Bottom Line: Redis acts as your ultra-fast, in-memory database that sits between your API and users, storing pre-computed, denormalized ticket data for instant access.
+Bottom Line: Redis acts as your ultra-fast, in-memory database that sits between your API and users, storing pre-computed, denormalized ticket data for instant access.<br>
+<img width="550" height="746" alt="image" src="https://github.com/user-attachments/assets/356ce786-e97e-4aa2-9448-c885ffed219d" />
 
 
 **genrators**-->are the functions that  that returns an iterator object generates the result over time in series,mean for the specific iteration time it executes the result and stop the function execution for tempolorarily and when then the generators called they start execution from the stoping point they use yield Yield: is used in generator functions to provide a sequence of values over time ,When yield is executed, it pauses the function, returns the current value and retains the state of the function. This allows the function to continue from same point when called again, making it ideal for generating large or complex sequences efficiently,they are efficient for large data as they save memeory ,iterators do same but we dont define them in generators and they are similar to list comprehension but parantheis are used sq=(x*i for i in range(1,6)) for i in sq: print(i).
