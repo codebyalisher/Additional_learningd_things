@@ -639,6 +639,17 @@ CalculatorWithHistory logs result & returns CalculationResult
 <img width="1003" height="828" alt="image" src="https://github.com/user-attachments/assets/b76711d6-36f2-4090-9727-0ccc9bf42fc1" />
 <img width="985" height="556" alt="image" src="https://github.com/user-attachments/assets/6552d93e-609f-46af-a28a-d6fda9f3d9d8" />
 
+<img width="1035" height="727" alt="image" src="https://github.com/user-attachments/assets/40ec889a-2e36-4461-b02d-803d29ea4b00" />
+<img width="966" height="560" alt="image" src="https://github.com/user-attachments/assets/27bda12c-6191-4be0-b233-9968e51e7830" />
+
+<img width="1064" height="798" alt="image" src="https://github.com/user-attachments/assets/c3b000b8-44ff-4897-88ad-10e72dad05d4" />
+<img width="1004" height="846" alt="image" src="https://github.com/user-attachments/assets/3e4ed7d5-4b4a-4051-83a1-f075199f7798" />
+<img width="1126" height="823" alt="image" src="https://github.com/user-attachments/assets/863c8729-94cd-46d6-8d70-5280f274c77f" />
+<img width="919" height="370" alt="image" src="https://github.com/user-attachments/assets/047760ac-4ad5-47b9-a7b3-0ea823d446b6" />
+
+
+
+
 
 
 
