@@ -632,3 +632,25 @@ CalculatorWithHistory logs result & returns CalculationResult
   - Quality coding requires thoughtful architecture and developer experience—not just automation.
 ## FASTAPI CUSTOM COMMANDS
 <img width="974" height="889" alt="image" src="https://github.com/user-attachments/assets/946248e7-f54a-4131-8ecd-f6d8a56bfd9a" />
+
+<img width="1031" height="342" alt="image" src="https://github.com/user-attachments/assets/6c7ae5d6-7484-4664-b417-00840b552040" /> <br>
+<img width="917" height="698" alt="image" src="https://github.com/user-attachments/assets/4b001528-617b-46af-af5b-be952b16aad3" /> <br>
+
+<img width="948" height="227" alt="image" src="https://github.com/user-attachments/assets/553a506f-b8ac-4fd8-b18d-ec5678483e79" />
+<img width="968" height="790" alt="image" src="https://github.com/user-attachments/assets/4d5e2007-91ed-4a40-8ac2-959f5a267e3d" />
+<img width="989" height="830" alt="image" src="https://github.com/user-attachments/assets/39c79167-d94c-44e1-baa8-e04ee89094d9" />
+<img width="959" height="849" alt="image" src="https://github.com/user-attachments/assets/b45846e1-b8ac-4d69-9b94-c33b1eae119c" />
+<img width="1028" height="802" alt="image" src="https://github.com/user-attachments/assets/7b4d45dc-2a80-4b8b-b8a4-c0ec9ecb4bc0" />
+<img width="947" height="746" alt="image" src="https://github.com/user-attachments/assets/4f4ff516-8408-4515-a5c3-bcafa456da1e" />
+
+
+
+
+
+
+
+
+
+
+
+
