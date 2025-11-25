@@ -633,6 +633,15 @@ CalculatorWithHistory logs result & returns CalculationResult
 ## FASTAPI CUSTOM COMMANDS
 <img width="974" height="889" alt="image" src="https://github.com/user-attachments/assets/946248e7-f54a-4131-8ecd-f6d8a56bfd9a" />
 
+<img width="1077" height="828" alt="image" src="https://github.com/user-attachments/assets/b90bc607-0818-433e-bc6c-33ec5688c41b" />
+<img width="1007" height="813" alt="image" src="https://github.com/user-attachments/assets/2c56015e-49bb-4405-9f2f-9226c007348d" />
+<img width="1003" height="799" alt="image" src="https://github.com/user-attachments/assets/d091a93e-d476-4cc5-86df-c7a23adf6cb1" />
+<img width="1003" height="828" alt="image" src="https://github.com/user-attachments/assets/b76711d6-36f2-4090-9727-0ccc9bf42fc1" />
+<img width="985" height="556" alt="image" src="https://github.com/user-attachments/assets/6552d93e-609f-46af-a28a-d6fda9f3d9d8" />
+
+
+
+
 <img width="1031" height="342" alt="image" src="https://github.com/user-attachments/assets/6c7ae5d6-7484-4664-b417-00840b552040" /> <br>
 <img width="917" height="698" alt="image" src="https://github.com/user-attachments/assets/4b001528-617b-46af-af5b-be952b16aad3" /> <br>
 
