@@ -641,18 +641,18 @@ CalculatorWithHistory logs result & returns CalculationResult
 
 <img width="1035" height="727" alt="image" src="https://github.com/user-attachments/assets/40ec889a-2e36-4461-b02d-803d29ea4b00" />
 <img width="966" height="560" alt="image" src="https://github.com/user-attachments/assets/27bda12c-6191-4be0-b233-9968e51e7830" />
-
 <img width="1064" height="798" alt="image" src="https://github.com/user-attachments/assets/c3b000b8-44ff-4897-88ad-10e72dad05d4" />
 <img width="1004" height="846" alt="image" src="https://github.com/user-attachments/assets/3e4ed7d5-4b4a-4051-83a1-f075199f7798" />
 <img width="1126" height="823" alt="image" src="https://github.com/user-attachments/assets/863c8729-94cd-46d6-8d70-5280f274c77f" />
 <img width="919" height="370" alt="image" src="https://github.com/user-attachments/assets/047760ac-4ad5-47b9-a7b3-0ea823d446b6" />
-
-
-
-
-
-
-
+<br>
+<img width="966" height="852" alt="image" src="https://github.com/user-attachments/assets/8d1c0a8b-c86b-4d27-b8f7-663b9481e918" />
+<img width="906" height="773" alt="image" src="https://github.com/user-attachments/assets/f43530ec-dc63-4b42-ba00-35375f463566" />
+<img width="922" height="736" alt="image" src="https://github.com/user-attachments/assets/f0fc1019-f507-45d6-ae8b-5e4e04c9e190" />
+<img width="992" height="709" alt="image" src="https://github.com/user-attachments/assets/81a487d9-de00-4044-9fba-7368f5f56c47" />
+<img width="977" height="824" alt="image" src="https://github.com/user-attachments/assets/6d4adc7a-9bae-4269-a5b6-bd35c29b6a5e" />
+<img width="988" height="574" alt="image" src="https://github.com/user-attachments/assets/e07966ae-7444-4115-a890-ff57373fa465" />
+<br>
 <img width="1031" height="342" alt="image" src="https://github.com/user-attachments/assets/6c7ae5d6-7484-4664-b417-00840b552040" /> <br>
 <img width="917" height="698" alt="image" src="https://github.com/user-attachments/assets/4b001528-617b-46af-af5b-be952b16aad3" /> <br>
 
