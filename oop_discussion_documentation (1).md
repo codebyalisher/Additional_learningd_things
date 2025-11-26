@@ -1,4 +1,4 @@
-# OOP Concepts Documentation (Bilal & Bhai Style)
+# OOP Concepts Documentation ( Bhai Style Me)
 
 Below is the full documentation of our discussion about OOP concepts — written in the same friendly tone we used during chat (“bhai style”). Everything is explained with examples, justifications, and simple rules.
 
